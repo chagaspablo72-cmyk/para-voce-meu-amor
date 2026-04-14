@@ -4,6 +4,8 @@
   <title>Pra você 💖</title>
   <meta charset="UTF-8">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       text-align: center;
@@ -13,9 +15,9 @@
       background-size: 400% 400%;
       animation: gradientBG 10s ease infinite;
 
-      margin-top: 100px;
-      overflow-y: auto; /* 🔥 AQUI CORRIGIDO */
-      padding-bottom: 100px; /* ajuda no final */
+      margin: 0;
+      padding: 20px;
+      overflow-y: auto;
     }
 
     @keyframes gradientBG {
@@ -26,8 +28,9 @@
 
     h1 {
       color: #ff4d6d;
-      font-size: 40px;
+      font-size: 8vw;
       animation: tituloAnimado 2s infinite;
+      margin-top: 20px;
     }
 
     @keyframes tituloAnimado {
@@ -37,24 +40,25 @@
     }
 
     p {
-      font-size: 20px;
+      font-size: 4.5vw;
       color: #333;
       white-space: pre-line;
+      margin: 15px 0;
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 12px 20px;
+      font-size: 4.5vw;
       background-color: #ff4d6d;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       margin-top: 20px;
     }
 
     .heart {
-      font-size: 30px;
+      font-size: 8vw;
       animation: pulse 1s infinite;
     }
 
@@ -72,7 +76,7 @@
     .falling-heart {
       position: fixed;
       top: -10px;
-      font-size: 20px;
+      font-size: 5vw;
       animation: fall linear forwards;
     }
 
@@ -85,18 +89,19 @@
   </style>
 
   <script>
-    let texto = `Queria te falar o quanto você é importante pra mim, mesmo com toda\n essa distância,
+    let texto = `Queria te falar o quanto você é importante pra mim, mesmo com toda essa distância,
 conversar com você virou uma das melhores coisas que eu tenho 💕\n\n
 
-Eu gosto muito da gente, do nosso jeito, do carinho que a gente\n tem um com o outro  
-Mesmo sem a gente ter oficializado\n nada ainda, mas isso está sendo muito especial
+Eu gosto muito da gente, do nosso jeito, do carinho que a gente tem um com o outro  
+Mesmo sem a gente ter oficializado nada ainda, mas isso está sendo muito especial
 pra mim ❤️\n\n
 
-Eu sei que a gente nunca se viu “pessoalmente”, mas todo dia dá vontade\n de te ter aqui perto de mim, de poder te abraçar e viver momentos simples com você\n\n
+Eu sei que a gente nunca se viu “pessoalmente”, mas todo dia dá vontade de te ter aqui perto de mim, de poder te abraçar e viver momentos simples com você\n\n
+
 Mas mesmo assim, eu continuo aqui, porque você vale muito a pena, meu amor.🤍\n\n
 
-Você me faz muito bem, me faz sorrir, me faz sentir algo que é difícil\n de explicar, minha vida... só sei que é muito bom 🥰  
-E eu quero\n continuar vivendo isso com você, cada dia mais.\n\n
+Você me faz muito bem, me faz sorrir, me faz sentir algo que é difícil de explicar, minha vida... só sei que é muito bom 🥰  
+E eu quero continuar vivendo isso com você, cada dia mais. \n\n
 
 Eu te amo muito ❤️`;
 
@@ -104,6 +109,11 @@ Eu te amo muito ❤️`;
 
     function mostrarMensagem() {
       document.getElementById("mensagem").style.display = "block";
+
+      // 🎵 tocar música (Cowpoke)
+      let iframe = document.getElementById("player");
+      iframe.src += "&autoplay=1";
+
       digitarTexto();
     }
 
@@ -112,7 +122,6 @@ Eu te amo muito ❤️`;
         document.getElementById("textoDigitando").innerHTML += texto.charAt(i);
         i++;
 
-        // 👇 auto scroll suave
         window.scrollTo({
           top: document.body.scrollHeight,
           behavior: "smooth"
@@ -141,7 +150,17 @@ Eu te amo muito ❤️`;
 
 <body>
 
-  <h1>oii minha vida💖</h1>
+  <!-- 🎵 Cowpoke (YouTube invisível) -->
+  <iframe 
+    id="player"
+    width="0" 
+    height="0" 
+    src="https://www.youtube.com/embed/1aEnYk9G2aE?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
+
+  <h1>Nadylla💖</h1>
 
   <p>
     Eu fiz isso pra você meu amor... 🥺 <br><br>
