@@ -3,7 +3,6 @@
 <head>
   <title>Pra você 💖</title>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -107,12 +106,20 @@ Eu te amo muito ❤️`;
 
     let i = 0;
 
-    function mostrarMensagem() {
+    function iniciar() {
       document.getElementById("mensagem").style.display = "block";
 
-      // 🎵 tocar música (Cowpoke)
-      let iframe = document.getElementById("player");
-      iframe.src += "&autoplay=1";
+      let musica = document.getElementById("musica");
+      musica.currentTime = 0;
+      musica.volume = 0.3;
+
+      let playPromise = musica.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          alert("Toque novamente para ativar o som 🎵");
+        });
+      }
 
       digitarTexto();
     }
@@ -150,15 +157,10 @@ Eu te amo muito ❤️`;
 
 <body>
 
-  <!-- 🎵 Cowpoke (YouTube invisível) -->
-  <iframe 
-    id="player"
-    width="0" 
-    height="0" 
-    src="https://www.youtube.com/embed/1aEnYk9G2aE?enablejsapi=1"
-    frameborder="0"
-    allow="autoplay">
-  </iframe>
+  <!-- 🎵 MÚSICA -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
 
   <h1>Nadylla💖</h1>
 
@@ -167,7 +169,7 @@ Eu te amo muito ❤️`;
     Mesmo de longe, você tá sempre comigo... 💖
   </p>
 
-  <button onclick="mostrarMensagem()">Clique aqui 💌</button>
+  <button onclick="iniciar()">Clique aqui 💌</button>
 
   <div id="mensagem">
     <p id="textoDigitando"></p>
